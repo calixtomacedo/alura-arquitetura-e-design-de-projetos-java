@@ -1,4 +1,4 @@
-package br.com.cmdev.solidcomjava.service;
+package br.com.cmdev.solidcomjava.service.impl;
 
 import br.com.cmdev.solidcomjava.ValidacaoException;
 import br.com.cmdev.solidcomjava.model.Cargo;

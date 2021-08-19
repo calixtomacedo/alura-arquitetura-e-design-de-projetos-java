@@ -12,10 +12,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import br.com.cmdev.solidcomjava.ValidacaoException;
-import br.com.cmdev.solidcomjava.service.ReajusteService;
+import br.com.cmdev.solidcomjava.service.ValidacaoReajuste;
+import br.com.cmdev.solidcomjava.service.impl.ReajusteService;
 import br.com.cmdev.solidcomjava.validate.ValidacaoPercentualReajuste;
 import br.com.cmdev.solidcomjava.validate.ValidacaoPeriodicidadeReajuste;
-import br.com.cmdev.solidcomjava.validate.ValidacaoReajuste;
 
 class FuncionarioTest {
 	

@@ -1,4 +1,4 @@
-package br.com.cmdev.solidcomjava.validate;
+package br.com.cmdev.solidcomjava.service;
 
 import java.math.BigDecimal;
 

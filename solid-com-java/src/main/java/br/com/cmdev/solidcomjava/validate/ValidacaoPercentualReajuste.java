@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 
 import br.com.cmdev.solidcomjava.ValidacaoException;
 import br.com.cmdev.solidcomjava.model.Funcionario;
+import br.com.cmdev.solidcomjava.service.ValidacaoReajuste;
 
 public class ValidacaoPercentualReajuste implements ValidacaoReajuste {
 

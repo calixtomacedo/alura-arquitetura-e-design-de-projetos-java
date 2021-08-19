@@ -1,10 +1,10 @@
-package br.com.cmdev.solidcomjava.service;
+package br.com.cmdev.solidcomjava.service.impl;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.cmdev.solidcomjava.model.Funcionario;
-import br.com.cmdev.solidcomjava.validate.ValidacaoReajuste;
+import br.com.cmdev.solidcomjava.service.ValidacaoReajuste;
 
 public class ReajusteService {
 	
