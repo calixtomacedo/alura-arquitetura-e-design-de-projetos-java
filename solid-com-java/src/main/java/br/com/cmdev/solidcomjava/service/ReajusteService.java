@@ -1,20 +1,24 @@
 package br.com.cmdev.solidcomjava.service;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.util.List;
 
-import br.com.cmdev.solidcomjava.ValidacaoException;
 import br.com.cmdev.solidcomjava.model.Funcionario;
+import br.com.cmdev.solidcomjava.validate.ValidacaoReajuste;
 
 public class ReajusteService {
+	
+	private List<ValidacaoReajuste> validacaoes;
+
+	public ReajusteService(List<ValidacaoReajuste> validacaoes) {
+		this.validacaoes = validacaoes;
+	}
 
 	public void reajustarSalarioDoFuncionario(Funcionario funcionario, BigDecimal valorAumento) {
-		BigDecimal salarioAtual = funcionario.getSalario();
-		BigDecimal percentualReajuste = valorAumento.divide(salarioAtual, RoundingMode.HALF_UP);
-		if (percentualReajuste.compareTo(new BigDecimal("0.4")) > 0) {
-			throw new ValidacaoException("Reajuste nao pode ser superior a 40% do salario!");
-		}
-		BigDecimal salarioReajustado = salarioAtual.add(valorAumento);
+		
+		this.validacaoes.forEach(validacao -> validacao.validar(funcionario, valorAumento));
+		
+		BigDecimal salarioReajustado = funcionario.getSalario().add(valorAumento);
 		funcionario.atualizarSalario(salarioReajustado);
 	}
 }
