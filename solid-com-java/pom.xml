@@ -5,11 +5,22 @@
 	<version>1.0.0</version>
 	<name>solid-com-java</name>
 	<description>Curso de SOLID com Java: Princípios da programação orientada a objetos</description>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>16</maven.compiler.source>
-	 	<maven.compiler.target>16</maven.compiler.target>
+		<maven.compiler.target>16</maven.compiler.target>
 	</properties>
+
+	<dependencies>
 	
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.7.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+
 </project>
