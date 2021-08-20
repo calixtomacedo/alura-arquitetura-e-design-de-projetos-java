@@ -9,7 +9,10 @@ import br.com.cmdev.designpatternsemjavai.service.Imposto;
 public class CalculadoraDeImpostos {
 
 	/**
-	 *  Sem implementação do Pattern Stratagy
+	 * Sem aplicação do pattern Stratagy
+	 * @param orsamento
+	 * @param imposto
+	 * @return BigDecimal
 	 */
 	public BigDecimal calcular(Orsamento orsamento, TipoImposto tipoImposto) {
 		switch (tipoImposto) {
@@ -23,7 +26,10 @@ public class CalculadoraDeImpostos {
 	}
 	
 	/**
-	 *  Com implementação do Pattern Stratagy
+	 * Aplicando o pattern Stratagy
+	 * @param orsamento
+	 * @param imposto
+	 * @return BigDecimal
 	 */
 	public BigDecimal calcular(Orsamento orsamento, Imposto imposto) {
 		return imposto.calcular(orsamento);
