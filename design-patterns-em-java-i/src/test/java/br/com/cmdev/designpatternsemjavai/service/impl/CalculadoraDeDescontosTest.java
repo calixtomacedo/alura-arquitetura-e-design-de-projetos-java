@@ -26,6 +26,8 @@ class CalculadoraDeDescontosTest {
 		CalculadoraDeDescontos desconto = new CalculadoraDeDescontos();
 		BigDecimal valorDesconto = desconto.calcular(orsamento);
 		
+		System.out.println(valorDesconto);
+		
 		assertTrue(valorDesconto.equals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_EVEN)));
 	}
 

@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import br.com.cmdev.designpatternsemjavai.model.Orsamento;
-import br.com.cmdev.designpatternsemjavai.service.Desconto;
 
 public class CalculadoraDeDescontos {
 
@@ -29,9 +28,9 @@ public class CalculadoraDeDescontos {
 	 * @return BigDecimal
 	 */
 	public BigDecimal calcular(Orsamento orsamento) {
-		Desconto desconto = new DescontoOrsamentoMaisCincoItens(
+		Desconto descontos = new DescontoOrsamentoMaisCincoItens(
 				new DescontoOrsamentoValorMaiorQuinhentos(
 						new SemDesconto()));
-		return desconto.calcular(orsamento);
+		return descontos.calcular(orsamento);
 	}
 }
