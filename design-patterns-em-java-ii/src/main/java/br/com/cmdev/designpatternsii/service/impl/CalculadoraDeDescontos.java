@@ -17,7 +17,7 @@ public class CalculadoraDeDescontos {
 			return  orsamento.getValor().multiply(new BigDecimal("0.1"));
 		}
 		if(orsamento.getValor().compareTo(new BigDecimal("500.00")) > 0) {
-			return  orsamento.getValor().multiply(new BigDecimal("0.1").setScale(2, RoundingMode.HALF_EVEN));
+			return  orsamento.getValor().multiply(new BigDecimal("0.1"));
 		}
 		return BigDecimal.ZERO;
 	}

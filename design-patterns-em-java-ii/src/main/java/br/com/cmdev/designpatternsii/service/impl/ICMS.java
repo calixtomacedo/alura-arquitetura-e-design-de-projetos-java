@@ -5,9 +5,14 @@ import java.math.BigDecimal;
 import br.com.cmdev.designpatternsii.model.Orsamento;
 import br.com.cmdev.designpatternsii.service.Imposto;
 
-public class ICMS implements Imposto {
+public class ICMS extends Imposto {
 
-	public BigDecimal calcular(Orsamento orsamento) {
+	public ICMS(Imposto outroImposto) {
+		super(outroImposto);
+	}
+
+	@Override
+	public BigDecimal realizarCalculo(Orsamento orsamento) {
 		return orsamento.getValor().multiply(new BigDecimal("0.1"));
 	}
 }

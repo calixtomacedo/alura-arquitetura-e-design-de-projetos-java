@@ -1,7 +1,6 @@
 package br.com.cmdev.designpatternsii.model;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 import br.com.cmdev.designpatternsii.service.EmAnalise;
 import br.com.cmdev.designpatternsii.service.Finalizado;
@@ -49,7 +48,7 @@ public class Orsamento {
 	}
 
 	public BigDecimal getValor() {
-		return valor.setScale(2, RoundingMode.HALF_EVEN);
+		return valor;
 	}
 
 	public int getQuantidateItens() {

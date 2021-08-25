@@ -1,7 +1,6 @@
 package br.com.cmdev.designpatternsii.service.impl;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 import br.com.cmdev.designpatternsii.model.Orsamento;
 
@@ -13,7 +12,7 @@ public class SemDesconto extends Desconto {
 
 	@Override
 	public BigDecimal efetuarCalculo(Orsamento orsamento) {
-		return BigDecimal.ZERO.setScale(2, RoundingMode.HALF_EVEN);
+		return BigDecimal.ZERO;
 	}
 
 	@Override
