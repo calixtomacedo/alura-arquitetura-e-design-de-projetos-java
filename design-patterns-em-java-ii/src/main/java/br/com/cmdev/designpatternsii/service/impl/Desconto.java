@@ -2,7 +2,7 @@ package br.com.cmdev.designpatternsii.service.impl;
 
 import java.math.BigDecimal;
 
-import br.com.cmdev.designpatternsii.model.Orsamento;
+import br.com.cmdev.designpatternsii.model.Orcamento;
 
 public abstract class Desconto {
 
@@ -14,16 +14,16 @@ public abstract class Desconto {
 
 	/**
 	 * Aplicando o pattern Template Method para reaproveitar trechos de códigos comuns, evitando duplicações
-	 * @param orsamento
+	 * @param orcamento
 	 * @return BigDecimal
 	 */
-	public BigDecimal calcular(Orsamento orsamento) {
-		if (deveAplicar(orsamento)) {
-			return efetuarCalculo(orsamento);
+	public BigDecimal calcular(Orcamento orcamento) {
+		if (deveAplicar(orcamento)) {
+			return efetuarCalculo(orcamento);
 		}
-		return proximo.calcular(orsamento);
+		return proximo.calcular(orcamento);
 	}
 	
-	protected abstract BigDecimal efetuarCalculo(Orsamento orsamento);
-	protected abstract boolean deveAplicar(Orsamento orsamento);
+	protected abstract BigDecimal efetuarCalculo(Orcamento orcamento);
+	protected abstract boolean deveAplicar(Orcamento orcamento);
 }

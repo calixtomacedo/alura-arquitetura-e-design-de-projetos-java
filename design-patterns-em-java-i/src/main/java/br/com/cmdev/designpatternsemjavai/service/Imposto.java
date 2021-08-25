@@ -2,8 +2,8 @@ package br.com.cmdev.designpatternsemjavai.service;
 
 import java.math.BigDecimal;
 
-import br.com.cmdev.designpatternsemjavai.model.Orsamento;
+import br.com.cmdev.designpatternsemjavai.model.Orcamento;
 
 public interface Imposto {
-	BigDecimal calcular(Orsamento orsamento);
+	BigDecimal calcular(Orcamento orcamento);
 }

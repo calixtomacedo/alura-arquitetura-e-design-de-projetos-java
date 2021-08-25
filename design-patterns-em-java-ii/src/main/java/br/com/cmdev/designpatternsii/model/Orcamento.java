@@ -4,15 +4,15 @@ import java.math.BigDecimal;
 
 import br.com.cmdev.designpatternsii.service.EmAnalise;
 import br.com.cmdev.designpatternsii.service.Finalizado;
-import br.com.cmdev.designpatternsii.service.impl.StatusOrsamento;
+import br.com.cmdev.designpatternsii.service.impl.StatusOrcamento;
 
-public class Orsamento {
+public class Orcamento {
 
 	private BigDecimal valor;
 	private int quantidateItens;
-	private StatusOrsamento status;
+	private StatusOrcamento status;
 
-	public Orsamento(BigDecimal valor, int quantidateItens) {
+	public Orcamento(BigDecimal valor, int quantidateItens) {
 		this.valor = valor;
 		this.quantidateItens = quantidateItens;
 		this.status = new EmAnalise();
@@ -55,11 +55,11 @@ public class Orsamento {
 		return quantidateItens;
 	}
 
-	public StatusOrsamento getStatus() {
+	public StatusOrcamento getStatus() {
 		return status;
 	}
 
-	public void setStatus(StatusOrsamento status) {
+	public void setStatus(StatusOrcamento status) {
 		this.status = status;
 	}
 

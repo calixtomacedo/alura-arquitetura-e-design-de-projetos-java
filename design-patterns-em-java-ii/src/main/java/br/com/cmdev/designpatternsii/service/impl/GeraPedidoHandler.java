@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.cmdev.designpatternsii.action.AcoesAposGerarPedido;
-import br.com.cmdev.designpatternsii.model.Orsamento;
+import br.com.cmdev.designpatternsii.model.Orcamento;
 import br.com.cmdev.designpatternsii.model.Pedido;
 
 /**
@@ -22,8 +22,8 @@ public class GeraPedidoHandler {
 	}
 
 	public void executa(GeraPedido dados) {
-		Orsamento orsamento = new Orsamento(dados.getValorOrsamento(), dados.getQuantidadeItens());
-		Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orsamento);
+		Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
+		Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
 
 		/**
 		 * Aplicando o pattern Observer

@@ -5,20 +5,20 @@ import java.math.RoundingMode;
 
 import br.com.cmdev.designpatternsemjavai.model.Orcamento;
 
-public class SemDesconto extends Desconto {
+public class DescontoOrcamentoMaisCincoItens extends Desconto {
 
-	public SemDesconto() {
-		super(null);
+	public DescontoOrcamentoMaisCincoItens(Desconto proximo) {
+		super(proximo);
 	}
 
 	@Override
 	public BigDecimal efetuarCalculo(Orcamento orcamento) {
-		return BigDecimal.ZERO.setScale(2, RoundingMode.HALF_EVEN);
+		return orcamento.getValor().multiply(new BigDecimal("0.1").setScale(2, RoundingMode.HALF_EVEN));
 	}
 
 	@Override
 	public boolean deveAplicar(Orcamento orcamento) {
-		return true;
+		return orcamento.getQuantidateItens() > 5;
 	}
 
 }

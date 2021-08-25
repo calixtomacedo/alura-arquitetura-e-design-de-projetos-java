@@ -6,12 +6,12 @@ public class Pedido {
 
 	private String cliente;
 	private LocalDateTime data;
-	private Orsamento orsamento;
+	private Orcamento orcamento;
 
-	public Pedido(String cliente, LocalDateTime data, Orsamento orsamento) {
+	public Pedido(String cliente, LocalDateTime data, Orcamento orcamento) {
 		this.cliente = cliente;
 		this.data = data;
-		this.orsamento = orsamento;
+		this.orcamento = orcamento;
 	}
 
 	public String getCliente() {
@@ -22,13 +22,13 @@ public class Pedido {
 		return data;
 	}
 
-	public Orsamento getOrsamento() {
-		return orsamento;
+	public Orcamento getOrcamento() {
+		return orcamento;
 	}
 
 	@Override
 	public String toString() {
-		return "Pedido [cliente=" + cliente + ", data=" + data + ", orsamento=" + orsamento + "]";
+		return "Pedido [cliente=" + cliente + ", data=" + data + ", orcamento=" + orcamento + "]";
 	}
 
 }

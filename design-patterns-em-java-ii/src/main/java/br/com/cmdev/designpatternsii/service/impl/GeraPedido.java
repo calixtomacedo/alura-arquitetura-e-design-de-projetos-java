@@ -8,12 +8,12 @@ import java.math.BigDecimal;
 public class GeraPedido {
 	
 	private String cliente;
-	private BigDecimal valorOrsamento;
+	private BigDecimal valorOrcamento;
 	private int quantidadeItens;
 
-	public GeraPedido(String cliente, BigDecimal valorOrsamento, int quantidadeItens) {
+	public GeraPedido(String cliente, BigDecimal valorOrcamento, int quantidadeItens) {
 		this.cliente = cliente;
-		this.valorOrsamento = valorOrsamento;
+		this.valorOrcamento = valorOrcamento;
 		this.quantidadeItens = quantidadeItens;
 	}
 	
@@ -21,8 +21,8 @@ public class GeraPedido {
 		return cliente;
 	}
 
-	public BigDecimal getValorOrsamento() {
-		return valorOrsamento;
+	public BigDecimal getValorOrcamento() {
+		return valorOrcamento;
 	}
 
 	public int getQuantidadeItens() {

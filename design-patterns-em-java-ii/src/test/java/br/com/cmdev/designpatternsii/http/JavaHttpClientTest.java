@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.cmdev.designpatternsii.model.Orsamento;
-import br.com.cmdev.designpatternsii.service.RegistroDeOrsamento;
+import br.com.cmdev.designpatternsii.model.Orcamento;
+import br.com.cmdev.designpatternsii.service.RegistroDeOrcamento;
 
 class JavaHttpClientTest {
 
 	@Test
 	void testConnectionWithAPI() {
-		Orsamento orsamento = new Orsamento(new BigDecimal("500.00"), 10);
-		orsamento.aprovar();
-		orsamento.finalizar();
+		Orcamento orcamento = new Orcamento(new BigDecimal("500.00"), 10);
+		orcamento.aprovar();
+		orcamento.finalizar();
 		
-		RegistroDeOrsamento registro = new RegistroDeOrsamento(new JavaHttpClient());
-		registro.registrar(orsamento);
+		RegistroDeOrcamento registro = new RegistroDeOrcamento(new JavaHttpClient());
+		registro.registrar(orcamento);
 	}
 
 }

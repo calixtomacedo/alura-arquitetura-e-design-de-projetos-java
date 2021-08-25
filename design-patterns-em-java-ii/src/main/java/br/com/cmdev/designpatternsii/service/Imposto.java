@@ -2,24 +2,24 @@ package br.com.cmdev.designpatternsii.service;
 
 import java.math.BigDecimal;
 
-import br.com.cmdev.designpatternsii.model.Orsamento;
+import br.com.cmdev.designpatternsii.model.Orcamento;
 
 public abstract class Imposto {
 	
 	private Imposto outroImposto;
 
-	protected abstract BigDecimal realizarCalculo(Orsamento orsamento);
+	protected abstract BigDecimal realizarCalculo(Orcamento orcamento);
 
 	public Imposto(Imposto outroImposto) {
 		this.outroImposto = outroImposto;
 	}
 
-	public BigDecimal calcular(Orsamento orsamento) {
-		BigDecimal valorImposto = realizarCalculo(orsamento);
+	public BigDecimal calcular(Orcamento orcamento) {
+		BigDecimal valorImposto = realizarCalculo(orcamento);
 		BigDecimal valorOutroImposto = BigDecimal.ZERO;
 		
 		if(outroImposto != null) {
-			valorOutroImposto = outroImposto.realizarCalculo(orsamento);
+			valorOutroImposto = outroImposto.realizarCalculo(orcamento);
 		}
 		
 		return valorImposto.add(valorOutroImposto);

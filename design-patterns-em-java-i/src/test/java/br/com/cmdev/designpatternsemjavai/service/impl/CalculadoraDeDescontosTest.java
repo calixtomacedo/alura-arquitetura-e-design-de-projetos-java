@@ -7,24 +7,24 @@ import java.math.RoundingMode;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.cmdev.designpatternsemjavai.model.Orsamento;
+import br.com.cmdev.designpatternsemjavai.model.Orcamento;
 
 class CalculadoraDeDescontosTest {
 
 	@Test
 	void deveriaRetornarUmValorMaiorQueZeroBaseadoNasRegrasDeDesconto() {
-		Orsamento orsamento = new Orsamento(new  BigDecimal("500.02"), 5);
+		Orcamento orcamento = new Orcamento(new  BigDecimal("500.02"), 5);
 		CalculadoraDeDescontos desconto = new CalculadoraDeDescontos();
-		BigDecimal valorDesconto = desconto.calcular(orsamento);
+		BigDecimal valorDesconto = desconto.calcular(orcamento);
 		
 		assertTrue(valorDesconto.doubleValue() > 0);
 	}
 	
 	@Test
 	void deveriaRetornarZeroPorqueNaoEntraNasRegrasDeDesconto() {
-		Orsamento orsamento = new Orsamento(new  BigDecimal("500.00"), 5);
+		Orcamento orcamento = new Orcamento(new  BigDecimal("500.00"), 5);
 		CalculadoraDeDescontos desconto = new CalculadoraDeDescontos();
-		BigDecimal valorDesconto = desconto.calcular(orsamento);
+		BigDecimal valorDesconto = desconto.calcular(orcamento);
 		
 		System.out.println(valorDesconto);
 		
