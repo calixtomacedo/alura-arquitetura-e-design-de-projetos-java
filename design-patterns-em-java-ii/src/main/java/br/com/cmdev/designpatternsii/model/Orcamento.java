@@ -1,21 +1,28 @@
 package br.com.cmdev.designpatternsii.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.cmdev.designpatternsii.service.EmAnalise;
 import br.com.cmdev.designpatternsii.service.Finalizado;
+import br.com.cmdev.designpatternsii.service.Orcavel;
 import br.com.cmdev.designpatternsii.service.impl.StatusOrcamento;
 
-public class Orcamento {
+public class Orcamento implements Orcavel {
 
 	private BigDecimal valor;
-	private int quantidateItens;
 	private StatusOrcamento status;
+	
+	/**
+	 * Aplicando o pattern Composite
+	 */
+	private List<Orcavel> Itens;
 
-	public Orcamento(BigDecimal valor, int quantidateItens) {
-		this.valor = valor;
-		this.quantidateItens = quantidateItens;
+	public Orcamento() {
+		this.valor = BigDecimal.ZERO;
 		this.status = new EmAnalise();
+		this.Itens = new ArrayList<Orcavel>();
 	}
 	
 	/**
@@ -52,7 +59,7 @@ public class Orcamento {
 	}
 
 	public int getQuantidateItens() {
-		return quantidateItens;
+		return Itens.size();
 	}
 
 	public StatusOrcamento getStatus() {
@@ -70,4 +77,11 @@ public class Orcamento {
 		return status instanceof Finalizado;
 	}
 
+	/**
+	 * Aplicando o pattern Composite
+	 */
+	public void adicionarItem(Orcavel item) {
+		this.valor = valor.add(item.getValor());
+		this.Itens.add(item);
+	}
 }

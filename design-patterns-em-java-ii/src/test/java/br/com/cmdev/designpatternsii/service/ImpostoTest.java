@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
+import br.com.cmdev.designpatternsii.model.ItemOrcamento;
 import br.com.cmdev.designpatternsii.model.Orcamento;
 import br.com.cmdev.designpatternsii.service.impl.CalculadoraDeImpostos;
 import br.com.cmdev.designpatternsii.service.impl.ICMS;
@@ -15,7 +16,8 @@ class ImpostoTest {
 
 	@Test
 	void testCalcularImpostos() {
-		Orcamento orcamento = new Orcamento(new BigDecimal("100"), 1);
+		Orcamento orcamento = new Orcamento();
+		orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("100")));
 		CalculadoraDeImpostos calculadora = new CalculadoraDeImpostos();
 		
 		BigDecimal iss = calculadora.calcular(orcamento, new ISS(null));
