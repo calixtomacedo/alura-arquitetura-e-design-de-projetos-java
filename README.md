@@ -4,7 +4,7 @@ Alura: Formação em Arquitetura e Design de Projetos Java
 
 - 01 solid-com-java - Curso de SOLID com Java: Princípios da programação orientada a objetos
 - 02 design-patterns-em-java-i - Curso de Design Patterns em Java I: Introdução às boas práticas de programação
-- 03 
+- 03 design-patterns-em-java-ii - Curso de Design Patterns em Java II: Avançando nas boas práticas de programação
 - 04 
 - 05 
 - 06 
