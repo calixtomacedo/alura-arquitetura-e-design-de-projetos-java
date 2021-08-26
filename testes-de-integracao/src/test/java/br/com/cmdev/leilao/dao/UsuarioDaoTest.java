@@ -1,11 +1,9 @@
 package br.com.cmdev.leilao.dao;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +22,7 @@ class UsuarioDaoTest {
 		this.dao = new UsuarioDao(em);
 		em.getTransaction().begin();
 	}
-	
+
 	@AfterEach
 	public void destroy() {
 		em.getTransaction().rollback();
@@ -33,20 +31,26 @@ class UsuarioDaoTest {
 	@Test
 	public void deveriaRetornarUmUsuarioPassandoComoParametroOUserName() {
 		Usuario usuario = createUser();
-		assertNotNull(usuario);
+		Assert.assertNotNull(usuario);
 	}
-	
+
 	@Test
 	public void naoDeveriaRetornarUmUsuarioPassandoComoParametroOUserName() {
 		createUser();
-		assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername("baltrano"));
+		Assert.assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername("baltrano"));
 	}
-	
+
+	@Test
+	public void deveriaRemoverOUsuarioPassadoComoParametro() {
+		Usuario usuario = createUser();
+		dao.deletar(usuario);
+		Assert.assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername(usuario.getNome()));
+	}
+
 	private Usuario createUser() {
 		Usuario usuario = new Usuario("fulano", "fulano@email.com", "123456");
 		em.persist(usuario);
 		return usuario;
 	}
 	
-
 }
