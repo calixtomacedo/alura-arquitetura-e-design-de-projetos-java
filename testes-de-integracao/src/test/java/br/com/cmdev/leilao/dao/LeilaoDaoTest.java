@@ -10,6 +10,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import br.com.cmdev.leilao.builder.LeilaoBuilder;
+import br.com.cmdev.leilao.builder.UsuarioBuilder;
 import br.com.cmdev.leilao.model.Leilao;
 import br.com.cmdev.leilao.model.Usuario;
 import br.com.cmdev.leilao.util.JPAUtil;
@@ -33,8 +35,19 @@ class LeilaoDaoTest {
 
 	@Test
 	public void deveriaCadastrarUmLeilao() {
-		Usuario usuario = createUser();
-		Leilao leilao = new Leilao("Notebook", new BigDecimal("1000"), LocalDate.now(), usuario);
+		Usuario usuario = new UsuarioBuilder()
+				.nome("fulano")
+				.email("fulano@email.com")
+				.password("123456").create();
+		
+		em.persist(usuario);
+		
+		Leilao leilao = new LeilaoBuilder()
+				.nome("Notebook")
+				.valorInicial("1000")
+				.data(LocalDate.now())
+				.usuario(usuario).create();
+		
 		leilao = dao.salvar(leilao);
 		
 		Leilao salvo = dao.buscarPorId(leilao.getId());
@@ -43,8 +56,19 @@ class LeilaoDaoTest {
 	
 	@Test
 	public void deveriaAtualizarUmLeilao() {
-		Usuario usuario = createUser();
-		Leilao leilao = new Leilao("Notebook", new BigDecimal("1000"), LocalDate.now(), usuario);
+		Usuario usuario = new UsuarioBuilder()
+				.nome("fulano")
+				.email("fulano@email.com")
+				.password("123456").create();
+		
+		em.persist(usuario);
+
+		Leilao leilao = new LeilaoBuilder()
+				.nome("Notebook")
+				.valorInicial("1000")
+				.data(LocalDate.now())
+				.usuario(usuario).create();
+		
 		leilao = dao.salvar(leilao);
 		
 		leilao.setNome("Workstation");
@@ -55,12 +79,6 @@ class LeilaoDaoTest {
 		Leilao salvo = dao.buscarPorId(leilao.getId());
 		Assert.assertEquals("Workstation", salvo.getNome());
 		Assert.assertEquals(new BigDecimal("3000"), salvo.getValorInicial());
-	}
-
-	private Usuario createUser() {
-		Usuario usuario = new Usuario("fulano", "fulano@email.com", "123456");
-		em.persist(usuario);
-		return usuario;
 	}
 
 }

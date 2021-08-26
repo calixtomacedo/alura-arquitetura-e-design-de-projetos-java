@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import br.com.cmdev.leilao.builder.UsuarioBuilder;
 import br.com.cmdev.leilao.model.Usuario;
 import br.com.cmdev.leilao.util.JPAUtil;
 
@@ -30,27 +31,24 @@ class UsuarioDaoTest {
 
 	@Test
 	public void deveriaRetornarUmUsuarioPassandoComoParametroOUserName() {
-		Usuario usuario = createUser();
+		Usuario usuario = new UsuarioBuilder().nome("fulano").email("fulano@email.com").password("123456").create();
+		em.persist(usuario);
 		Assert.assertNotNull(usuario);
 	}
 
 	@Test
 	public void naoDeveriaRetornarUmUsuarioPassandoComoParametroOUserName() {
-		createUser();
+		Usuario usuario = new UsuarioBuilder().nome("fulano").email("fulano@email.com").password("123456").create();
+		em.persist(usuario);
 		Assert.assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername("baltrano"));
 	}
 
 	@Test
 	public void deveriaRemoverOUsuarioPassadoComoParametro() {
-		Usuario usuario = createUser();
+		Usuario usuario = new UsuarioBuilder().nome("fulano").email("fulano@email.com").password("123456").create();
+		em.persist(usuario);
 		dao.deletar(usuario);
 		Assert.assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername(usuario.getNome()));
-	}
-
-	private Usuario createUser() {
-		Usuario usuario = new Usuario("fulano", "fulano@email.com", "123456");
-		em.persist(usuario);
-		return usuario;
 	}
 	
 }
