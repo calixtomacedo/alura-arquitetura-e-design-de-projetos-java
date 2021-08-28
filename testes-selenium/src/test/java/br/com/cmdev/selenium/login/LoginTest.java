@@ -7,23 +7,21 @@ import org.junit.jupiter.api.Test;
 
 public class LoginTest {
 	
-	private LoginPageObject pageLogin;
+	private LoginPage pageLogin;
 
 	@BeforeEach
 	public void setUpBeforeEach() {
-		this.pageLogin = new LoginPageObject();
+		this.pageLogin = new LoginPage();
 	}
 	
 	@AfterEach
 	public void setUpAfterEach() {
-		pausaParaFechar();
 		this.pageLogin.quit();
 	}
 	
 	@Test
 	public void deveriaEfetuarLoginComDadosValidos() {
-		pageLogin.preencherFormularioLogin("fulano", "pass");
-		pageLogin.efetuarLogin();
+		pageLogin.efetuarLogin("fulano", "pass");
 		
 		Assert.assertFalse(pageLogin.isPaginaUsuarioLogado());
 		Assert.assertEquals("fulano", pageLogin.getNomeUsuarioLogado());
@@ -31,8 +29,7 @@ public class LoginTest {
 	
 	@Test
 	public void naoDeveriaEfetuarLoginComDadosInvalidos() {
-		pageLogin.preencherFormularioLogin("test", "123");
-		pageLogin.efetuarLogin();
+		pageLogin.efetuarLogin("test", "123");
 		
 		Assert.assertTrue(pageLogin.isPaginaUsuarioInvalido());
 		Assert.assertNull(pageLogin.getNomeUsuarioLogado());
@@ -46,13 +43,6 @@ public class LoginTest {
 		Assert.assertTrue(pageLogin.isPaginaUsuarioLogado());
 		Assert.assertFalse(pageLogin.verificarContemTexto("Dados do Leilão"));
 	}
-
-	private void pausaParaFechar() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
-	}
 	
 }
+

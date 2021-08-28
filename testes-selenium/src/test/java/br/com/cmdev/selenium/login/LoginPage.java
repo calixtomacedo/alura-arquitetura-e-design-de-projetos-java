@@ -2,31 +2,28 @@ package br.com.cmdev.selenium.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginPageObject {
+import br.com.cmdev.selenium.PageObject;
+import br.com.cmdev.selenium.leilao.LeiloesPage;
+
+public class LoginPage extends PageObject {
 	
 	private static final String URL_LOGIN = "http://localhost:8080/login";
-	private WebDriver browser;
 	
-	public LoginPageObject() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		this.browser = new ChromeDriver();
-		browser.navigate().to(URL_LOGIN);
+	public LoginPage() {
+		super(null);
+		this.browser.navigate().to(URL_LOGIN);
 	}
 
-	public void quit() {
-		this.browser.quit();
-	}
-
-	public void preencherFormularioLogin(String username, String password) {
+	private void preencherFormularioLogin(String username, String password) {
 		browser.findElement(By.id("username")).sendKeys(username);
 		browser.findElement(By.id("password")).sendKeys(password);
 	}
 
-	public void efetuarLogin() {
+	public LeiloesPage efetuarLogin(String username, String password) {
+		this.preencherFormularioLogin(username, password);
 		browser.findElement(By.id("login-form")).submit();
+		return new LeiloesPage(browser);
 	}
 
 	public boolean isPaginaUsuarioLogado() {
