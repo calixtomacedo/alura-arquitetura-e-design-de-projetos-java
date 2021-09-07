@@ -2,12 +2,15 @@ package br.com.cmdev.bddejava.acceptance.steps;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 
 import br.com.cmdev.bddejava.model.Lance;
 import br.com.cmdev.bddejava.model.Leilao;
 import br.com.cmdev.bddejava.model.Usuario;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
@@ -25,7 +28,7 @@ public class PropondoLanceSteps {
 		leilao = new Leilao("Tablet XPTO");
 	}
 
-	@Dado("um lance  valido")
+	@Dado("um lance valido")
 	public void dado_um_lance_valido() {
 		Usuario usuario = new Usuario("fulano");
 		lance = new Lance(usuario, BigDecimal.TEN);
@@ -70,6 +73,35 @@ public class PropondoLanceSteps {
 		Assert.assertEquals(this.lanceList.size(), leilao.getLances().size());
 		Assert.assertEquals(this.lanceList.get(0).getValor(), leilao.getLances().get(0).getValor());
 		Assert.assertEquals(this.lanceList.get(1).getValor(), leilao.getLances().get(1).getValor());
+	}
+	
+	
+	@Dado("um lance invalido de {double} reais e do usuario {string}")
+	public void um_lance_invalido_de_reais(Double valor, String nomeUsuario) {
+		//System.out.println(nomeUsuario);
+		this.lance = new Lance(new BigDecimal(valor));
+	}
+	
+	@Entao("o lance nao eh aceito")
+	public void o_lance_nao_eh_aceito() {
+		Assert.assertEquals(0, leilao.getLances().size());
+	}
+	
+	@Dado("dois lances")
+	public void dois_lances(DataTable dataTable) {
+		List<Map<String, String>> valores = dataTable.asMaps();
+		valores.forEach(map -> {
+			String valor = map.get("valor");
+			String nome = map.get("nomeUsuario");
+			Lance lance = new Lance(new Usuario(nome), new BigDecimal(valor));
+			this.lanceList.add(lance);
+		});
+	}
+	
+	@Entao("o segundo lance nao eh aceito")
+	public void o_segundo_lance_nao_eh_aceito() {
+		Assert.assertEquals(2, leilao.getLances().size());
+		Assert.assertEquals(this.lanceList.get(0).getValor(), leilao.getLances().get(0).getValor());
 	}
 	
 }
