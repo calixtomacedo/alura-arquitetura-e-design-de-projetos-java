@@ -9,6 +9,10 @@
 	<properties>
 		<java.version>16</java.version>
 	</properties>
+	
+	<dependencies>
+	
+	</dependencies>
 
 	<build>
 		<plugins>
