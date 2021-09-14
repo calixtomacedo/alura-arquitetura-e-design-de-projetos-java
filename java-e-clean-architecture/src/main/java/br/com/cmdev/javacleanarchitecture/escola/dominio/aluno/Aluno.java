@@ -1,4 +1,4 @@
-package br.com.cmdev.javacleanarchitecture.model;
+package br.com.cmdev.javacleanarchitecture.escola.dominio.aluno;
 
 import java.util.ArrayList;
 import java.util.List;

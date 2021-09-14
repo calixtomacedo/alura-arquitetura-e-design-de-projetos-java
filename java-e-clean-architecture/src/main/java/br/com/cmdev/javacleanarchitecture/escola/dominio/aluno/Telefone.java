@@ -1,4 +1,4 @@
-package br.com.cmdev.javacleanarchitecture.model;
+package br.com.cmdev.javacleanarchitecture.escola.dominio.aluno;
 
 public class Telefone {
 

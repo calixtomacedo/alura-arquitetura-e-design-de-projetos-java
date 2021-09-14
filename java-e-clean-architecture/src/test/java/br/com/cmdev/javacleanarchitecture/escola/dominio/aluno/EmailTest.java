@@ -1,4 +1,4 @@
-package br.com.cmdev.javacleanarchitecture.model;
+package br.com.cmdev.javacleanarchitecture.escola.dominio.aluno;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

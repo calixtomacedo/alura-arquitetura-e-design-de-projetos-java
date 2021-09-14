@@ -1,6 +1,8 @@
-package br.com.cmdev.javacleanarchitecture.model;
+package br.com.cmdev.javacleanarchitecture.escola.dominio.indicacao;
 
 import java.time.LocalDateTime;
+
+import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.Aluno;
 
 public class Indicacao {
 
