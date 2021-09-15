@@ -25,8 +25,8 @@ public class FabricaDeAluno {
 		.comTelefone("11", "998509646").criar();
 		
 		System.out.println(aluno.getNome());
-		System.out.println(aluno.getCpf().getNumero());
-		System.out.println(aluno.getEmail().getEndereco());
+		System.out.println(aluno.getCpf());
+		System.out.println(aluno.getEmail());
 		aluno.getTelefones().forEach(tel -> System.out.println(tel.getDdd()+"-"+tel.getNumero()));
 	}
 }
