@@ -27,7 +27,7 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 		try {
 			String sql = "INSERT INTO TB_ALUNO VALUES(?, ?, ?)";
 			PreparedStatement psmt = connection.prepareStatement(sql);
-			psmt.setString(1, aluno.getCpf());
+			psmt.setString(1, aluno.getCpf().getNumero());
 			psmt.setString(2, aluno.getNome());
 			psmt.setString(3, aluno.getEmail());
 			psmt.execute();
