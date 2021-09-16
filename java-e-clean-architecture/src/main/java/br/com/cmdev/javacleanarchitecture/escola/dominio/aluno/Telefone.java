@@ -13,7 +13,7 @@ public class Telefone {
 			throw new IllegalArgumentException("DDD invalido");
 		}
 		if(!numero.matches("\\d{8}|\\d{9}")) {
-			throw new IllegalArgumentException("numero invalido");
+			throw new IllegalArgumentException("numero telefone invalido");
 		}
 		this.ddd = ddd;
 		this.numero = numero;

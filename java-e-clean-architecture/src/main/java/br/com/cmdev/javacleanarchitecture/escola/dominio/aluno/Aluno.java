@@ -11,10 +11,11 @@ public class Aluno {
 	private String senha;
 	private List<Telefone> telefones = new ArrayList<>();
 	
-	public Aluno(CPF cpf, String nome, Email email) {
+	public Aluno(CPF cpf, String nome, Email email, String senha) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.email = email;
+		this.senha = senha;
 	}
 
 	public void adicionarTelefone(String ddd, String numero) {
