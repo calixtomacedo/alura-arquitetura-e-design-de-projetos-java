@@ -19,6 +19,9 @@ public class Aluno {
 	}
 
 	public void adicionarTelefone(String ddd, String numero) {
+		if(this.telefones.size() == 2) {
+			throw new IllegalArgumentException("É permitido cadastrar apenas 2 telefones!"); 
+		}
 		this.telefones.add(new Telefone(ddd, numero));
 	}
 	
