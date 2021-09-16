@@ -3,10 +3,10 @@ package br.com.cmdev.javacleanarchitecture.escola.infra.aluno;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.cmdev.javacleanarchitecture.escola.dominio.RepositorioDeAlunos;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.Aluno;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.AlunoNaoEncontrado;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.CPF;
-import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.RepositorioDeAlunos;
 
 public class RepositorioDeAlunosEmMemoria implements RepositorioDeAlunos {
 

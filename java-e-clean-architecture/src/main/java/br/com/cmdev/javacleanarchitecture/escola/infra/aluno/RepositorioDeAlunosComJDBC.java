@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.cmdev.javacleanarchitecture.escola.dominio.RepositorioDeAlunos;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.Aluno;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.AlunoNaoEncontrado;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.CPF;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.Email;
-import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.RepositorioDeAlunos;
 import br.com.cmdev.javacleanarchitecture.escola.dominio.aluno.Telefone;
 
 public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
