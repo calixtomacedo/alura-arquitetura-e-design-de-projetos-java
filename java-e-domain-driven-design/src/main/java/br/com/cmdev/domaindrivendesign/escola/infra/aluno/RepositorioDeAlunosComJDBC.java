@@ -1,0 +1,114 @@
+package br.com.cmdev.domaindrivendesign.escola.infra.aluno;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.cmdev.domaindrivendesign.escola.dominio.RepositorioDeAlunos;
+import br.com.cmdev.domaindrivendesign.escola.dominio.aluno.Aluno;
+import br.com.cmdev.domaindrivendesign.escola.dominio.aluno.AlunoNaoEncontrado;
+import br.com.cmdev.domaindrivendesign.escola.dominio.aluno.CPF;
+import br.com.cmdev.domaindrivendesign.escola.dominio.aluno.Email;
+import br.com.cmdev.domaindrivendesign.escola.dominio.aluno.Telefone;
+
+public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
+
+	private final Connection connection;
+
+	public RepositorioDeAlunosComJDBC(Connection connection) {
+		this.connection = connection;
+	}
+
+	@Override
+	public void matricular(Aluno aluno) {
+		try {
+			String sql = "INSERT INTO TB_ALUNO VALUES(?, ?, ?)";
+			PreparedStatement psmt = connection.prepareStatement(sql);
+			psmt.setString(1, aluno.getCpf());
+			psmt.setString(2, aluno.getNome());
+			psmt.setString(3, aluno.getEmail());
+			psmt.execute();
+
+			sql = "INSERT INTO TB_ALUNO VALUES(?, ?, ?)";
+			for (Telefone telefone : aluno.getTelefones()) {
+				psmt.setString(1, telefone.getDdd());
+				psmt.setString(2, telefone.getNumero());
+				psmt.execute();
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public Aluno buscarPorCPF(CPF cpf) {
+		try {
+			String sql = "SELECT id, nome, email FROM ALUNO WHERE cpf = ?";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, cpf.getNumero());
+
+			ResultSet rs = ps.executeQuery();
+			boolean encontrou = rs.next();
+			if (!encontrou) {
+				throw new AlunoNaoEncontrado(cpf);
+			}
+
+			String nome = rs.getString("nome");
+			Email email = new Email(rs.getString("email"));
+			Aluno encontrado = new Aluno(cpf, nome, email, "123456");
+
+			Long id = rs.getLong("id");
+			sql = "SELECT ddd, numero FROM TELEFONE WHERE aluno_id = ?";
+			ps = connection.prepareStatement(sql);
+			ps.setLong(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				String numero = rs.getString("numero");
+				String ddd = rs.getString("ddd");
+				encontrado.adicionarTelefone(ddd, numero);
+			}
+
+			return encontrado;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public List<Aluno> listarTodosAlunosMatriculados() {
+		try {
+			String sql = "SELECT id, cpf, nome, email FROM ALUNO";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			List<Aluno> alunos = new ArrayList<>();
+			while (rs.next()) {
+				CPF cpf = new CPF(rs.getString("cpf"));
+				String nome = rs.getString("nome");
+				Email email = new Email(rs.getString("email"));
+				Aluno aluno = new Aluno(cpf, nome, email, "123456");
+
+				Long id = rs.getLong("id");
+				sql = "SELECT ddd, numero FROM TELEFONE WHERE aluno_id = ?";
+				PreparedStatement psTelefone = connection.prepareStatement(sql);
+				psTelefone.setLong(1, id);
+				ResultSet rsTelefone = psTelefone.executeQuery();
+				while (rsTelefone.next()) {
+					String numero = rsTelefone.getString("numero");
+					String ddd = rsTelefone.getString("ddd");
+					aluno.adicionarTelefone(ddd, numero);
+				}
+
+				alunos.add(aluno);
+			}
+
+			return alunos;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+}

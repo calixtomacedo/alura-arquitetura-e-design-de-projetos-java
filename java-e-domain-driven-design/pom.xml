@@ -5,11 +5,29 @@
 	<version>1.0.0</version>
 	<name>java-e-domain-driven-design</name>
 	<description>Curso de Java e Domain Driven Design: Apresentando os conceitos</description>
-	
+
 	<properties>
 		<java.version>16</java.version>
 	</properties>
-	
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.8.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.8.0</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -24,5 +42,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
