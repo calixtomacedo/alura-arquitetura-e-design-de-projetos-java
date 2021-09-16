@@ -10,5 +10,5 @@ Alura: Formação em Arquitetura e Design de Projetos Java
 - 06 testes-selenium - Curso de Selenium: Testes automatizados de aceitação em Java
 - 07 bdd-e-java - Curso de BDD e Java: Behavior Driven Development com Cucumber
 - 08 java-e-clean-architecture - Curso de Java e Clean Architecture: Descomplicando arquitetura de software
-- 09 
+- 09 java-e-domain-driven-design - Curso de Java e Domain Driven Design: Apresentando os conceitos
 
