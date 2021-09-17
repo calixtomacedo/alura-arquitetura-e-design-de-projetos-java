@@ -12,6 +12,7 @@ import br.com.cmdev.domaindrivendesign.escola.shared.dominio.evento.PublicadorDe
 public class MatricularAlunoPorLinhaDeComando {
 
 	public static void main(String[] args) {
+		
 		String nome = "Fulano da Silva";
 		String cpf = "123.456.789-00";
 		String email = "fulano@email.com";
