@@ -3,6 +3,8 @@ package br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.CPF;
+
 public class Aluno {
 	
 	private CPF cpf; 

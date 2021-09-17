@@ -4,13 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.cmdev.domaindrivendesign.escola.academico.aplicacao.aluno.matricular.MatricularAluno;
-import br.com.cmdev.domaindrivendesign.escola.academico.aplicacao.aluno.matricular.MatricularAlunoDto;
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.PublicadorDeEventos;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.Aluno;
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.CPF;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.LogDeAlunoMatriculado;
 import br.com.cmdev.domaindrivendesign.escola.academico.infra.aluno.RepositorioDeAlunosEmMemoria;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.CPF;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.evento.PublicadorDeEventos;
 
 class MatricularAlunoTest {
 

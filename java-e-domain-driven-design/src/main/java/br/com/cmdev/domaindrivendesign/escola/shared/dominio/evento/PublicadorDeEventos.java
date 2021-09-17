@@ -1,4 +1,4 @@
-package br.com.cmdev.domaindrivendesign.escola.academico.dominio;
+package br.com.cmdev.domaindrivendesign.escola.shared.dominio.evento;
 
 import java.util.ArrayList;
 import java.util.List;

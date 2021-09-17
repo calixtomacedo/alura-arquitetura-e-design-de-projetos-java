@@ -2,8 +2,8 @@ package br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno;
 
 import java.time.format.DateTimeFormatter;
 
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.Evento;
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.Ouvinte;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.evento.Evento;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.evento.Ouvinte;
 
 public class LogDeAlunoMatriculado extends Ouvinte {
 

@@ -6,7 +6,7 @@ import java.util.List;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.RepositorioDeAlunos;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.Aluno;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.AlunoNaoEncontrado;
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.CPF;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.CPF;
 
 public class RepositorioDeAlunosEmMemoria implements RepositorioDeAlunos {
 

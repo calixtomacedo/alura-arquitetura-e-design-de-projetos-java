@@ -1,9 +1,9 @@
 package br.com.cmdev.domaindrivendesign.escola.academico.aplicacao.aluno.matricular;
 
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.Aluno;
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.CPF;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.Email;
 import br.com.cmdev.domaindrivendesign.escola.academico.infra.CifradorDeSenhaComMD5;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.CPF;
 
 public class MatricularAlunoDto {
 

@@ -1,6 +1,6 @@
 package br.com.cmdev.domaindrivendesign.escola.gamificacao.dominio;
 
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.CPF;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.CPF;
 
 public class Selo {
 

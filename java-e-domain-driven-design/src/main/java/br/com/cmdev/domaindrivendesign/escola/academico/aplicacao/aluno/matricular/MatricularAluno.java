@@ -1,9 +1,9 @@
 package br.com.cmdev.domaindrivendesign.escola.academico.aplicacao.aluno.matricular;
 
-import br.com.cmdev.domaindrivendesign.escola.academico.dominio.PublicadorDeEventos;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.RepositorioDeAlunos;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.Aluno;
 import br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno.AlunoMatriculado;
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.evento.PublicadorDeEventos;
 
 public class MatricularAluno {
 

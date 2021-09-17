@@ -1,5 +1,7 @@
 package br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno;
 
+import br.com.cmdev.domaindrivendesign.escola.shared.dominio.CPF;
+
 public class FabricaDeAluno {
 
 	private Aluno aluno;

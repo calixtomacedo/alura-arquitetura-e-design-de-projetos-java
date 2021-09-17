@@ -1,4 +1,4 @@
-package br.com.cmdev.domaindrivendesign.escola.academico.dominio.aluno;
+package br.com.cmdev.domaindrivendesign.escola.shared.dominio;
 
 public class CPF {
 
