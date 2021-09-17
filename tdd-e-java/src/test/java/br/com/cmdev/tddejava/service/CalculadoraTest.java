@@ -7,10 +7,9 @@ import org.junit.jupiter.api.Test;
 class CalculadoraTest {
 
 	@Test
-	void deveriaRetornarASomaDoAmaisB() {
-		int a = 5, b = 10;
-		int soma = new Calculadora().somar(a, b);
-		assertEquals(soma, 15);
+	void deveriaSomarDoisNumerosPositivos() {
+		int soma = new Calculadora().somar(3, 7);
+		assertEquals(10, soma);
 	}
 
 }
