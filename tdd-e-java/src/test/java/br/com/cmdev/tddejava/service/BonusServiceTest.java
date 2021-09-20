@@ -23,14 +23,14 @@ class BonusServiceTest {
 	}
 
 	@Test
-	void deveriaRetornarZeroQuandoDezPorCentoDoSalarioForSuperiorAMil() {
+	void deveriaRetornarZeroQuandoDezPorCentoParaSalarioForSuperiorAMil() {
 		Funcionario funcionario = new Funcionario("Caio Macedo", LocalDate.of(2019, 06, 24), new BigDecimal("12000.00"));
 		BigDecimal bonus = new BonusService().calcularBonus(funcionario);
 		assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), bonus);
 	}
 	
 	@Test
-	void deveriaRetornarValorEquivalentoADezPorCentoDoSalarioExatamenteMil() {
+	void deveriaRetornarValorEquivalentoADezPorCentoParaSalarioExatamenteMil() {
 		Funcionario funcionario = new Funcionario("Caio Macedo", LocalDate.of(2019, 06, 24), new BigDecimal("10000.00"));
 		BigDecimal bonus = new BonusService().calcularBonus(funcionario);
 		assertEquals(new BigDecimal("1000.00").setScale(2, RoundingMode.HALF_UP), bonus);
