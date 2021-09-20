@@ -1,6 +1,7 @@
 package br.com.cmdev.tddejava.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -24,9 +25,11 @@ class BonusServiceTest {
 
 	@Test
 	void deveriaRetornarZeroQuandoDezPorCentoParaSalarioForSuperiorAMil() {
+		BonusService service = new BonusService();
 		Funcionario funcionario = new Funcionario("Caio Macedo", LocalDate.of(2019, 06, 24), new BigDecimal("12000.00"));
-		BigDecimal bonus = new BonusService().calcularBonus(funcionario);
-		assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), bonus);
+		//assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), bonus);
+		
+		assertThrows(IllegalArgumentException.class, () -> service.calcularBonus(funcionario));
 	}
 	
 	@Test
